@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
     WelcomeComponent,
     HeaderComponent,
   ],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
