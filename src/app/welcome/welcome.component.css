@@ -1,0 +1,22 @@
+.table {
+  max-width: 500px;
+}
+.table tr > td:first-child {
+  padding-right: .75rem;
+  width: 175px;
+  text-align: right;
+}
+.instructions li {
+  margin-bottom: 1rem;
+}
+
+i.fa-times,
+i.fa-check {
+  vertical-align: middle;
+}
+i.fa-times {
+  color: #dc3545;
+}
+i.fa-check {
+  color: #28a745;
+}

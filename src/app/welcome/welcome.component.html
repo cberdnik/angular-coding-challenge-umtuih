@@ -1,0 +1,107 @@
+<div class="jumbotron bg-light py-5">
+	<h1 class="display-4">Welcome<!-- ADD YOUR NAME HERE -->!</h1>
+	<div class="lead" [ngSwitch]="position">
+		<ng-template [ngSwitchCase]="'senior'"><ng-container *ngTemplateOutlet="introSenior"></ng-container></ng-template>
+		<ng-template ngSwitchDefault><ng-container *ngTemplateOutlet="introJunior"></ng-container></ng-template>
+	</div>
+
+	<hr class="my-4">
+
+	<p class="h4">Acceptance Criteria</p>
+	<ul class="instructions">
+    <li>
+      <p>Add your name to the HTML of this page <code>&lt;h1&gt;Welcome!&lt;/h1&gt;</code>. This template can be found at: <code>/app/welcome/welcome.component.html</code>.</p>
+      <p>Your name should render at the top of this page. ⬆
+		</li>
+		
+		<ng-container [ngSwitch]="position">
+			<ng-template [ngSwitchCase]="'senior'"><ng-container *ngTemplateOutlet="criteriaSenior"></ng-container></ng-template>
+			<ng-template ngSwitchDefault><ng-container *ngTemplateOutlet="criteriaJunior"></ng-container></ng-template>
+		</ng-container>
+	</ul>
+</div>
+
+
+
+<ng-template #introJunior>
+	<p>Business has required that we add a registration page allowing user&#39;s to signup for our application. We need your help creating the registration page and navigating to it.</p>
+	<p>Additionally, business has indicated that there are stringent rules surrounding some of the fields 😱!! To better help the user identify the rules- UX asked that we toggle visual indicators to display if a given rule has been <i class="fas fa-check"></i> satisfied or <i class="fas fa-times"></i> unsatisfied.</p>
+	<p>To help hit the ground running this sprint, a junior developer on the team already created the raw HTML and CSS for you to use 🙏🙏🙏.</p>
+	<p>These files are located in the directory: <code>/src/scratch</code>.</p>
+</ng-template>
+
+
+<ng-template #introSenior>
+	<p>The product owner has decided to add a new <strong>todos feature</strong> to our application. We need your help creating the todos page and navigating to it.</p>
+	<p>In our first iteration of todos, we only need the ability for a user to create todos, mark them as complete and delete them. We won&#39;t need to worry about editting todos this sprint, but doing so would be quite impressive! 😀</p>
+	<p>To help hit the ground running this sprint, a junior developer on the team already created the raw HTML and CSS for you to use 🙏🙏🙏.</p>
+	<p>This file is located in the directory: <code>/src/scratch/todos</code>.</p>
+</ng-template>
+
+
+<ng-template #criteriaJunior>
+	<li>
+		<p>Create the <code>RegisterComponent</code>.</p>
+		<p>This can be done by right-clicking on the <b>app</b> directory and selecting <b>Angular Generator &gt; Component</b> from the contextual menu.</p>
+	</li>
+	<li>URL for the registration page should be: <code>/register</code>.</li>
+	<li>Place a link for user&#39;s to navigate to <code>/register</code> in the template of the <code>HeaderComponent</code>.</li>
+	<li>Create a <strong>reusable component</strong> that can be associated with a given form field and accepts <strong>one-or-many rules</strong> to render.</li>
+	<li>
+		Each rule should dynamically toggle a visual indicator depending on whether the value of the associated form field satisfies the rule or not.
+		<ul class="mt-2">
+			<li class="mb-1">Satisfied rules display the <i class="fas fa-check"></i> indicator.</li>
+			<li>Unsatisfied rules display the <i class="fas fa-times"></i> indicator.</li>
+		</ul>
+	</li>
+	<li>
+		<p class="mb-2">Rules for the the <span class="font-weight-bold">Username field:</span></p>
+
+		<table class="table table-dark table-striped table-sm">
+			<tr>
+				<td>Alphanumeric:</td>
+				<td><code>/^[a-zA-Z0-9]+$/</code></td>
+			</tr>
+		</table>
+	</li>
+	<li>
+		<p class="mb-2">Rules for the the <span class="font-weight-bold">Password field:</span></p>
+
+		<table class="table table-dark table-striped table-sm">
+			<tr>
+				<td>8-20 characters:</td>
+				<td><code>N/A</code></td>
+			</tr>
+			<tr>
+				<td>1 uppercase letter:</td>
+				<td><code>/(?=.*[A-Z])/</code></td>
+			</tr>
+			<tr>
+				<td>1 lowercase letter:</td>
+				<td><code>/(?=.*[a-z])/</code></td>
+			</tr>
+			<tr>
+				<td>1 number:</td>
+				<td><code>/(?=.*\d)/</code></td>
+			</tr>
+		</table>
+	</li>
+</ng-template>
+
+
+<ng-template #criteriaSenior>
+	<li>
+		<p>Create the <code>TodosComponent</code>.</p>
+		<p>This can be done by right-clicking on the <b>app</b> directory and selecting <b>Angular Generator &gt; Component</b> from the contextual menu.</p>
+	</li>
+	<li>URL for the Todos page should be: <code>/todos</code>.</li>
+	<li>Place a link for user&#39;s to navigate to <code>/todos</code> in the template of the <code>HeaderComponent</code>.</li>
+	<li>Create a <strong>resuable component</strong> that can be used to render an <em>individual todo</em>.</li>
+	<li>As a user I should be able to create a todo by entering the name of a todo in the form at the top of the page.</li>
+	<li>Upon submitting the form, the input field value should be cleared out.</li>
+	<li>Upon submitting the form, a new todo should render in the list below.</li>
+	<li>As a user I should be able to mark a todo as complete and visually see a checkmark when the todo is complete and a circle when incomplete.</li>
+	<li>As a user I should be able to delete a todo from the todos list by clicking on the trashcan icon.</li>
+	<li>When there aren&#39;t any todos in the list, I should see the text "<span class="text-muted">There aren&#39;t any todos. Why don&#39;t you create one?</span>".</li>
+	<li>The text "<span class="text-muted">create one</span>" should be a hyperlink, that when clicked will place focus on the form field to create a new todo.</li>
+</ng-template>
