@@ -1,0 +1,6 @@
+<form class="newTodo" [formGroup]="todoFormGroup" (ngSubmit)="onAddTodo()">
+  <input #title formControlName="title"
+          name="text" autocomplete="off"
+          aria-label="Add todo"
+          placeholder="+ tap to add a todo"/>
+</form>

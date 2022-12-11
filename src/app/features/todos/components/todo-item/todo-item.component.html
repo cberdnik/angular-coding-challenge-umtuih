@@ -1,0 +1,17 @@
+<div class="todo" [ngClass]="{'done': todoItem.isComplete}">
+    <button class="status" (click)="onTodoCompletedClick()"></button>
+
+    <ng-container *ngIf="editItem; else displayItem">
+        <form class="editTodo" [formGroup]="todoFormGroup" (ngSubmit)="onUpdateTodo()">
+            <input #title formControlName="title"
+                    name="text" autocomplete="off"
+                    (blur)="onUpdateTodo()"
+                    aria-label="Edit todo"/>
+        </form>
+    </ng-container>
+    <ng-template #displayItem>
+        <div (click)="onEditToDoClick()">{{todoItem.title}}</div>
+    </ng-template>
+
+    <button class="remove" (click)="deleteTodo.emit(todoItem)"></button>
+</div>

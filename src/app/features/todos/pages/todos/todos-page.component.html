@@ -1,0 +1,20 @@
+<div class="todos">
+    <app-add-todo #addToDo (insertTodo)="onInsertTodo($event)"></app-add-todo>
+
+    <div class="to-do-list">
+        <div *ngIf="isLoading$ | async" class="loading">
+            <span>Busy...</span>
+        </div>
+
+        <ng-container *ngIf="!(isLoading$ | async) && (todos$ | async).length === 0">
+            <div class="create-new-link">
+                <a href="#" (click)="addToDo.setFocus()">create one</a>
+            </div>
+        </ng-container>
+
+        <app-todo-list [todos]="todos$ | async"
+                (updateTodo)="onUpdateTodo($event)"
+                (deleteTodo)="onRemoveTodo($event)">
+        </app-todo-list>
+    </div>
+</div>

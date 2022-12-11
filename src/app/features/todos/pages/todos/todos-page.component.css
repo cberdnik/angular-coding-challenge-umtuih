@@ -1,0 +1,22 @@
+.to-do-list {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background: #6c757d80;
+}
+
+.create-new-link {
+    font-size: large;
+    text-align: center;
+}

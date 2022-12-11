@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { HeaderComponent } from 'src/app/header/header.component';
+import { HeaderComponent } from 'src/app/core/components/header.component';
 
 describe('HeaderComponent', () => {
     beforeEach(async(() => {

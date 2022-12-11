@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { WelcomeComponent } from 'src/app/welcome/welcome.component';
+import { WelcomeComponent } from 'src/app/features/welcome/welcome.component';
 
 describe('WelcomeComponent', () => {
     beforeEach(async(() => {
