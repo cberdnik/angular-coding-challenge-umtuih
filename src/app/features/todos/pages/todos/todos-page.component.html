@@ -8,7 +8,7 @@
 
         <ng-container *ngIf="!(isLoading$ | async) && (todos$ | async).length === 0">
             <div class="create-new-link">
-                <a href="#" (click)="addToDo.setFocus()">create one</a>
+                <a href="#" (click)="addToDo.setFocus()">There aren't any todos. Why don't you create one?</a>
             </div>
         </ng-container>
 
