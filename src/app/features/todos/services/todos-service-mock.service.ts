@@ -18,7 +18,8 @@ export class TodosServiceMock {
 
     // noinspection JSUnusedLocalSymbols
     public insertTodo(todoItem: TodoItem): Observable<TodoItem> {
-        const newId = Math.max(...this.todoList.map(todo => todo.id)) + 1;
+        let newId = Math.max(...this.todoList.map(todo => todo.id)) + 1;
+        newId = newId < 0 ? 1 : newId;
         const insertedToDo = { ...todoItem, id: newId };
         this.todoList.push(insertedToDo);
 
