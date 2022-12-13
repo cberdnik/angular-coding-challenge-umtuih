@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { TodoItem } from 'src/app/features/todos/models/todo-item.model';
-import { mockToDos } from 'src/app/features/todos/services/mock-todos';
 
 @Injectable()
 export class TodosServiceMock {
@@ -10,7 +9,7 @@ export class TodosServiceMock {
     private todoList: TodoItem[] = [];
 
     constructor() {
-        this.todoList = [...mockToDos];
+        this.todoList = [];
     }
 
     public getTodos(): Observable<TodoItem[]> {
