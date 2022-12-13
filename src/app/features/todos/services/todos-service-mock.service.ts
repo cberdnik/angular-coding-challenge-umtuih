@@ -7,10 +7,10 @@ import { mockToDos } from 'src/app/features/todos/services/mock-todos';
 @Injectable()
 export class TodosServiceMock {
     private static readonly NetworkThrottling = 0;
-    private readonly todoList: TodoItem[] = [];
+    private todoList: TodoItem[] = [];
 
     constructor() {
-        this.todoList = mockToDos;
+        this.todoList = [...mockToDos];
     }
 
     public getTodos(): Observable<TodoItem[]> {
@@ -27,14 +27,14 @@ export class TodosServiceMock {
     }
 
     public updateTodo(todoItem: TodoItem): Observable<TodoItem> {
-        this.updateTodoItem(this.todoList, todoItem);
+        this.todoList = this.updateTodoItem(this.todoList, todoItem);
 
         return of({ ...todoItem }).pipe(delay(TodosServiceMock.NetworkThrottling));
     }
 
     // noinspection JSUnusedLocalSymbols
     public deleteTodo(todoItem: TodoItem): Observable<TodoItem> {
-        this.removeToDoItem(this.todoList, todoItem);
+        this.todoList = this.removeToDoItem(this.todoList, todoItem);
 
         return of({ ...todoItem }).pipe(delay(TodosServiceMock.NetworkThrottling));
     }
